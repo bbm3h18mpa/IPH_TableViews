@@ -21,6 +21,12 @@ class ViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = editButtonItem
         title = "Spiele"
+        tableView.tableFooterView = UIView()
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.setEditing(editing, animated: animated)
     }
 }
 
@@ -39,5 +45,20 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
     
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let selectedGame = games.remove(at: sourceIndexPath.row)
+        games.insert(selectedGame, at: destinationIndexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            games.remove(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
 }
