@@ -92,12 +92,16 @@
 /* Begin PBXProject section */
 		F9BE606177C4F3DB68DCA3BD /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = F9BE60835891029AA0B7ED17 /* Build configuration list for PBXProject "TableViews" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
+				Base,
 			);
 			mainGroup = F9BE671A982498610B18D3D0;
 			productRefGroup = F9BE6202E8D72A12F13FC750 /* Products */;
@@ -279,8 +283,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -318,6 +321,7 @@
 				F9BE6CF5D593E84059BFBE4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
