@@ -44,8 +44,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YjJ-1h-chs"/>
+                    <navigationItem key="navigationItem" id="YjJ-1h-chs">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="yZx-ov-R28">
+                            <connections>
+                                <action selector="onAddButton:" destination="BYZ-38-t0r" id="fDI-Kt-Icq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="yZx-ov-R28" id="MKA-0j-QjA"/>
                         <outlet property="tableView" destination="Qgl-XC-ATW" id="cgo-Wt-BTW"/>
                     </connections>
                 </viewController>

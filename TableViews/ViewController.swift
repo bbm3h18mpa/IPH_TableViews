@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     var games = ["Gta V", "Minecraft", "CS:GO"]
 
@@ -22,6 +23,22 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItem = editButtonItem
         title = "Spiele"
         tableView.tableFooterView = UIView()
+    }
+    @IBAction func onAddButton(_ sender: UIBarButtonItem) {
+        var textField: UITextField? = nil
+        let alert = UIAlertController(title: "Neues Spiel", message: "Welches Spiel möchtest du hinzufügen?", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: { (tf) in
+            textField = tf
+        })
+        
+        alert.addAction(UIAlertAction(title: "Hinzufügen", style: .default, handler: { (action) in
+            let text = textField!.text?.trimmingCharacters(in: [" "])
+            if (text != nil && text != "") {
+                self.games.insert(text!, at: 0)
+                self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            }
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
